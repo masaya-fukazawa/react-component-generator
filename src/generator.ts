@@ -1,5 +1,5 @@
 import {readFile, writeFile, readdir, access, mkdir} from 'fs/promises'
-import path from 'path'
+import {join} from 'path'
 import {compile} from 'handlebars'
 import {blue, red, green} from 'chalk'
 
@@ -19,15 +19,15 @@ const checkDir = async (pathToComponent: string) => {
 }
 
 export const generate = async (name: string, directory: string) => {
-  const templates = await readdir(path.join(__dirname, '/templates/'))
-  const pathToComponent = path.join(process.cwd(), `/src/components/${directory}/${name}/`)
+  const templates = await readdir(join(__dirname, '/templates/'))
+  const pathToComponent = join(process.cwd(), `/src/components/${directory}/${name}/`)
   await checkDir(pathToComponent)
   return Promise.all(templates.map(async template => {
     try {
-      const buffer = await readFile(path.join(__dirname, `/templates/${template}`))
+      const buffer = await readFile(join(__dirname, `/templates/${template}`))
       const compiled = compile(buffer.toString())
       const fileName = template.replace('fc', name).slice(0, -4)
-      await writeFile(path.join(pathToComponent, fileName), compiled({name, directory}))
+      await writeFile(join(pathToComponent, fileName), compiled({name, directory}))
       console.info(green('success'), `created: ${pathToComponent}${fileName}`)
     } catch (error) {
       console.error(red('failed'), 'generate component :(\n', error)
