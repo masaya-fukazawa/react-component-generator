@@ -1,6 +1,9 @@
 import {Command, flags} from '@oclif/command'
-import {blue} from 'chalk'
+import {blue, red} from 'chalk'
 import {generate} from './generator'
+
+const atomics = ['atoms', 'molecules', 'organisms', 'organizations', 'templates', 'pages']
+const toPascalCase = (str: string) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 
 class ReactComponentGenerator extends Command {
   static description = 'describe the command here'
@@ -22,7 +25,17 @@ class ReactComponentGenerator extends Command {
 
   async run() {
     const {args} = this.parse(ReactComponentGenerator)
-    await generate(args.file, args.directory)
+    if (!(args.file && args.directory)) {
+      throw new Error(`${red('error')} required argv[0] && argv[1].
+      Please specify the file name for argv[0].
+      Please specify the directory name for argv[1].
+      ex) atoms, molecules...`)
+    }
+
+    if (!atomics.includes(args.directory)) {
+      throw new Error(`${red('error')} Specify the module name of atomic design for the directory name.`)
+    }
+    await generate(toPascalCase(args.file), args.directory)
     console.log('\n', blue('info'), 'completed to generate component :)')
   }
 }
