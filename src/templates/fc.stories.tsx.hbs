@@ -1,0 +1,16 @@
+import React from 'react'
+import {Story} from '@storybook/react'
+import { {{~name~}} } from './{{name}}'
+
+const config = {
+  title: '{{directory}}/{{name}}',
+  component: {{name}}
+}
+
+export default config
+
+const Template: Story = (args) => <{{name}} {...args}>hogehoge</{{name}}>
+
+export const Normal = Template.bind({})
+Normal.args = {
+}
