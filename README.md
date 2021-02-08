@@ -11,29 +11,21 @@ react-component-generator
 <!-- toc -->
 - [react-component-generator](#react-component-generator)
 - [Usage](#usage)
-- [Commands](#commands)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
 $ yarn add -D react-component-generator
-$ npx rcg COMMAND
-running command...
 $ npx rcg (-v|--version|version)
 react-component-generator/0.0.0 darwin-x64 node-v14.15.1
-$ npx rcg --help [COMMAND]
 
 USAGE
-  $ npx rcg YourComponentName atoms
-  success created: /path/to/workspace/src/components/atoms/YourComponentName/YourComponentName.stories.tsx
-  success created: /path/to/workspace/src/components/atoms/YourComponentName/YourComponentName.tsx
-  success created: /path/to/workspace/src/components/atoms/YourComponentName/index.ts
-  success created: /path/to/workspace/src/components/atoms/YourComponentName/YourComponentName.test.tsx
+$ npx rcg YourComponentName atoms
+success created: /path/to/workspace/src/components/atoms/YourComponentName/YourComponentName.stories.tsx
+success created: /path/to/workspace/src/components/atoms/YourComponentName/YourComponentName.tsx
+success created: /path/to/workspace/src/components/atoms/YourComponentName/index.ts
+success created: /path/to/workspace/src/components/atoms/YourComponentName/YourComponentName.test.tsx
 
-  info completed to generate component :)
+info completed to generate component :)
 ```
 <!-- usagestop -->
-# Commands
-<!-- commands -->
-
-<!-- commandsstop -->
