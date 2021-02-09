@@ -1,6 +1,6 @@
 {
   "name": "sk2-react-component-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Masaya Fukazawa @masaya-fukazawa",
   "bin": {
     "rcg": "./bin/run"
