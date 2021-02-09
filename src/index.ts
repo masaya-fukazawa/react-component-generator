@@ -5,7 +5,7 @@ import {generate} from './generator'
 const atomics = ['atoms', 'molecules', 'organisms', 'organizations', 'templates', 'pages']
 const toPascalCase = (str: string) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 
-export default class ReactComponentGenerator extends Command {
+class ReactComponentGenerator extends Command {
   static description = 'describe the command here'
 
   static flags = {
@@ -39,3 +39,5 @@ export default class ReactComponentGenerator extends Command {
     console.log('\n', blue('info'), 'completed to generate component :)')
   }
 }
+
+export = ReactComponentGenerator
